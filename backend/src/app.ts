@@ -26,7 +26,7 @@ app.use(helmet({
 app.use("/static", express.static(path.join(__dirname, "../public")));
 
 app.use("/api/profile", ProfileRouter);
-app.use("/api/gitgub", GithubRouter);
+app.use("/api/github", GithubRouter);
 
 
 httpServer.listen(httpPort, () => {
