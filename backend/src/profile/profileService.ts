@@ -45,7 +45,7 @@ export class ProfileService {
     }
 
     private static async getPublicRepositories() {
-        const url = `${this.BASE_URL}/users/${this.USERNAME}/repos?sort=updated&per_page=100`;
+        const url = `${this.BASE_URL}/users/${this.USERNAME}/repos?per_page=100`;
         const response = await axios.get<any[]>(url, {
             headers: {
                 "Accept": "application/vnd.github+json",

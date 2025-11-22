@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
@@ -23,10 +23,22 @@ app.use(helmet({
 }));
 
 app.use("/static", express.static(path.join(__dirname, "../public")));
+app.use("/api", ProfileRouter);
+app.use((req: Request, res: Response, next: NextFunction) => {
+    return res.status(404).json({
+        status: "error",
+        message: "API not found"
+    });
+});
 
-app.use("/api/profile", ProfileRouter);
-
+app.use((error: any, req: Request, res: Response, next: NextFunction) => {
+    const message = error.message || "Internal server error";
+    return res.status(500).json({
+        status: "error",
+        message: message
+    });
+});
 
 httpServer.listen(httpPort, () => {
-    console.log(`http server started on ${httpPort}`);
-})
+    console.log(`http server started on port ${httpPort}`);
+});
