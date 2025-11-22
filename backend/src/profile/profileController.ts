@@ -1,4 +1,4 @@
-import { ProfileData } from "@/interface";
+import { ProfileData } from "@/common/interface";
 import { NextFunction, Request, Response } from "express";
 import fs from "fs";
 import path from "path";
@@ -18,7 +18,7 @@ export class ProfileController {
 
     public static getTechStackList(req: Request, res:Response, next: NextFunction) {
         try {
-            return res.status(200).json(techStackList);
+            return res.status(200).json({ icons: techStackList });
         } catch (error) {
             next(error);
         }

@@ -4,8 +4,8 @@ import { GithubService } from "./githubAPIService";
 export class GithubController {
     public static async getRepos(req: Request, res: Response, next: NextFunction) {
         try {
-            const result = GithubService.getRepositories();
-            return res.status(200).json(result);
+            const result = await GithubService.getRepos();
+            return res.status(200).json({ repos: result });
         } catch (error) {
             next(error);
         }

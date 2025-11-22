@@ -1,3 +1,4 @@
+// portfolio profile
 export interface ProfileData {
   name: string;
   contact: ContactInfo;
@@ -46,4 +47,16 @@ export interface CareerItem {
 export interface CareerSection {
   title: string;
   details: string[];
+}
+
+// github repositories (GitHub API)
+export interface GithubRepo {
+  name: string;
+  fullName: string;
+  url: string;
+  description: string | null;
+  language: string | null;
+  stars: number;
+  forks: number;
+  updatedAt: string;
 }
