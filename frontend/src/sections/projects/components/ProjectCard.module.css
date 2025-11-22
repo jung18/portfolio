@@ -1,0 +1,101 @@
+.card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 100px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 2px 2px 120px 0px rgba(0, 0, 0, 0.25);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 260px;
+  background: #d9d9d9;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  line-height: 26px;
+  color: #000000;
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  color: #666666;
+  margin: 0 0 20px;
+  flex: 1;
+}
+
+.techStack {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #42446e;
+  margin: 0 0 20px;
+}
+
+.techLabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 26px;
+  color: #42446e;
+  margin: 0 0 8px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #000000;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #13b0f5;
+}
+
+.linkIcon {
+  width: 20px;
+  height: 20px;
+}
