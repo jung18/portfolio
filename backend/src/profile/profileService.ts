@@ -1,12 +1,27 @@
 import { GithubRepo } from "@/common/interface";
 import axios from "axios";
 import { cache } from "@/common/cache";
+import { ProfileData } from "@/common/interface";
+import fs from "fs";
+import path from "path";
 
-export class GithubService {
+const profileData: ProfileData = JSON.parse(fs.readFileSync(path.join(__dirname, "../../conf/portfolio.json"), "utf-8"))
+const icons = fs.readdirSync(path.join(__dirname, "../../public/icons"));
+const techStackList = icons.map(file => `/static/icons/${file}`);
+
+export class ProfileService {
     private static readonly BASE_URL = "https://api.github.com";
     private static readonly USERNAME = "jung18";
     private static readonly GITHUB_TOKEN = process.env.GITHUB_TOKEN;
     private static readonly CACHE_KEY = "github_repos";
+
+    public static getProfile() {
+        return profileData;
+    }
+
+    public static getTechStackList() {
+        return techStackList;
+    }
 
     public static async getRepos() {
         let repos = this.getCache();

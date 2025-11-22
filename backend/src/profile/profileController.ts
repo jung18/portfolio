@@ -1,16 +1,11 @@
-import { ProfileData } from "@/common/interface";
 import { NextFunction, Request, Response } from "express";
-import fs from "fs";
-import path from "path";
-
-const profileData: ProfileData = JSON.parse(fs.readFileSync(path.join(__dirname, "../../conf/portfolio.json"), "utf-8"))
-const icons = fs.readdirSync(path.join(__dirname, "../../public/icons"));
-const techStackList = icons.map(file => `/static/icons/${file}`);
+import { ProfileService } from "./profileService";
 
 export class ProfileController {
     public static getProfile(req: Request, res: Response, next: NextFunction) {
         try {
-            return res.status(200).json(profileData);
+            const result = ProfileService.getProfile();
+            return res.status(200).json(result);
         } catch (error) {
             next(error);
         }
@@ -18,7 +13,17 @@ export class ProfileController {
 
     public static getTechStackList(req: Request, res:Response, next: NextFunction) {
         try {
-            return res.status(200).json({ icons: techStackList });
+            const result = ProfileService.getTechStackList();
+            return res.status(200).json({ icons: result });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    public static async getRepos(req: Request, res: Response, next: NextFunction) {
+        try {
+            const result = await ProfileService.getRepos();
+            return res.status(200).json({ repos: result });
         } catch (error) {
             next(error);
         }

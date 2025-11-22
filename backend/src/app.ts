@@ -6,7 +6,6 @@ import http from "http";
 import cors from "cors";
 import path from "path";
 import ProfileRouter from "./profile/profileRouter";
-import GithubRouter from "./github/githubRouter";
 
 dotenv.config();
 
@@ -26,7 +25,6 @@ app.use(helmet({
 app.use("/static", express.static(path.join(__dirname, "../public")));
 
 app.use("/api/profile", ProfileRouter);
-app.use("/api/github", GithubRouter);
 
 
 httpServer.listen(httpPort, () => {
