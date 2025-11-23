@@ -48,6 +48,11 @@
   align-items: center;
 }
 
+.socialLink {
+  display: inline-block;
+  text-decoration: none;
+}
+
 .socialIcon {
   width: 30px;
   height: 30px;

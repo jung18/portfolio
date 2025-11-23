@@ -73,7 +73,6 @@ export default function Projects() {
               description={repo.description || ""}
               techStack={repo.language || "Unknown"}
               image={`${STATIC_BASE_URL}${repo.thumbnail}`}
-              liveLink={repo.url}
               codeLink={repo.url}
             />
           ))}

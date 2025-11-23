@@ -1,3 +1,4 @@
+import { useProfile } from "@/contexts/ProfileContext";
 import svgPaths from "../../imports/svg-n1ck8w4cmn";
 import styles from "./Footer.module.css";
 
@@ -78,6 +79,8 @@ function Logo() {
 }
 
 function SocialIcons() {
+  const { profile } = useProfile();
+  
   return (
     <div className={styles.socialLinks}>
       <svg className={styles.socialIcon} fill="none" viewBox="0 0 30 30">
@@ -93,27 +96,42 @@ function SocialIcons() {
       <svg className={styles.socialIcon} fill="none" viewBox="0 0 30 30">
         <path d={svgPaths.p2db6fff0} fill="currentColor" />
       </svg>
-      <svg className={styles.socialIcon} fill="none" viewBox="0 0 30 30">
-        <path clipRule="evenodd" d={svgPaths.pf603080} fill="currentColor" fillRule="evenodd" />
-      </svg>
+      {profile?.contact.github && (
+        <a 
+          href={profile.contact.github} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.socialLink}
+        >
+          <svg className={styles.socialIcon} fill="none" viewBox="0 0 30 30">
+            <path clipRule="evenodd" d={svgPaths.pf603080} fill="currentColor" fillRule="evenodd" />
+          </svg>
+        </a>
+      )}
     </div>
   );
 }
 
 export default function Footer() {
+  const { profile } = useProfile();
+  
   return (
     <footer id="contact" className={styles.footer}>
       <div className={styles.container}>
         <Logo />
         <div className={styles.contact}>
-          <div className={styles.contactItem}>
-            <span className={styles.contactIcon}>📞</span>
-            <p className={styles.contactText}>+91 12345 09876</p>
-          </div>
-          <div className={styles.contactItem}>
-            <span className={styles.contactIcon}>✉️</span>
-            <p className={styles.contactText}>info@example.com</p>
-          </div>
+          {profile?.contact.tell && (
+            <div className={styles.contactItem}>
+              <span className={styles.contactIcon}>📞</span>
+              <p className={styles.contactText}>{profile.contact.tell}</p>
+            </div>
+          )}
+          {profile?.contact.email && (
+            <div className={styles.contactItem}>
+              <span className={styles.contactIcon}>✉️</span>
+              <p className={styles.contactText}>{profile.contact.email}</p>
+            </div>
+          )}
         </div>
         <SocialIcons />
       </div>

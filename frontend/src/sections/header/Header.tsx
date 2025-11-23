@@ -1,3 +1,4 @@
+import { useProfile } from "@/contexts/ProfileContext";
 import svgPaths from "../../imports/svg-n1ck8w4cmn";
 import styles from "./Header.module.css";
 
@@ -78,6 +79,8 @@ function Logo() {
 }
 
 function SocialIcons() {
+  const { profile } = useProfile();
+  
   return (
     <div className={styles.socialLinks}>
       <svg className={styles.socialIcon} fill="none" viewBox="0 0 30 30">
@@ -93,9 +96,18 @@ function SocialIcons() {
       <svg className={styles.socialIcon} fill="none" viewBox="0 0 30 30">
         <path d={svgPaths.p2db6fff0} fill="currentColor" />
       </svg>
-      <svg className={styles.socialIcon} fill="none" viewBox="0 0 30 30">
-        <path clipRule="evenodd" d={svgPaths.pf603080} fill="currentColor" fillRule="evenodd" />
-      </svg>
+      {profile?.contact.github && (
+        <a 
+          href={profile.contact.github} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.socialLink}
+        >
+          <svg className={styles.socialIcon} fill="none" viewBox="0 0 30 30">
+            <path clipRule="evenodd" d={svgPaths.pf603080} fill="currentColor" fillRule="evenodd" />
+          </svg>
+        </a>
+      )}
     </div>
   );
 }
