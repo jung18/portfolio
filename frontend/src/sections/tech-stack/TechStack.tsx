@@ -1,21 +1,52 @@
+import { useState, useEffect } from "react";
+import { api, STATIC_BASE_URL } from "@/utils/apiUtil";
 import TechIcon from "./components/TechIcon";
 import styles from "./TechStack.module.css";
 
+interface TechStackResponse {
+  icons: string[];
+}
+
 export default function TechStack() {
-  const technologies = [
-    { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-    { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-    { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
-    { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
-    { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
-    { name: "Sass", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
-    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-    { name: "Greensock", icon: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-greensock.svg" },
-    { name: "VSCode", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-    { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-  ];
+  const [icons, setIcons] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchTechStack = async () => {
+      try {
+        setLoading(true);
+        const data: TechStackResponse = await api.getTechStacks();
+        setIcons(data.icons);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "기술 스택 데이터를 불러오는데 실패했습니다.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTechStack();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="tech-stack" className={styles.techStack}>
+        <div className={styles.container}>
+          <p>로딩 중...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="tech-stack" className={styles.techStack}>
+        <div className={styles.container}>
+          <p>오류: {error}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="tech-stack" className={styles.techStack}>
@@ -23,11 +54,11 @@ export default function TechStack() {
         <h2 className={styles.title}>My Tech Stack</h2>
         <p className={styles.subtitle}>Technologies I've been working with recently</p>
         <div className={styles.iconGrid}>
-          {technologies.map((tech) => (
+          {icons.map((iconPath, index) => (
             <TechIcon 
-              key={tech.name}
-              src={tech.icon}
-              alt={tech.name}
+              key={index}
+              src={`${STATIC_BASE_URL}${iconPath}`}
+              alt={`Tech icon ${index + 1}`}
             />
           ))}
         </div>

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "npx ts-node src/app.ts"
+    "start": "ts-node -r tsconfig-paths/register src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,8 @@
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "morgan": "^1.10.1",
-    "node-cache": "^5.1.2"
+    "node-cache": "^5.1.2",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/axios": "^0.9.36",
