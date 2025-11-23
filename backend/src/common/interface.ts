@@ -54,6 +54,7 @@ export interface GithubRepo {
   name: string;
   fullName: string;
   url: string;
+  thumbnail: string;
   description: string | null;
   language: string | null;
   stars: number;

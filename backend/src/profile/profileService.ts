@@ -8,6 +8,13 @@ import path from "path";
 const profileData: ProfileData = JSON.parse(fs.readFileSync(path.join(__dirname, "../../conf/portfolio.json"), "utf-8"))
 const icons = fs.readdirSync(path.join(__dirname, "../../public/icons"));
 const techStackList = icons.map(file => `/static/icons/${file}`);
+const thumbnails = fs.readdirSync(path.join(__dirname, "../../public/thumbnails"));
+const thumbnailList = thumbnails.map(file => ({
+    fileName: file,
+    url: `/static/thumbnails/${file}`
+}));
+const thumbnailMap = new Map(thumbnailList.map(t => [t.fileName, t.url]));
+const blacklist = ["jung18", "Algorithm", "TIL"];
 
 export class ProfileService {
     private static readonly BASE_URL = "https://api.github.com";
@@ -30,16 +37,22 @@ export class ProfileService {
         }
         // cache update
         const response = await this.getPublicRepositories();
-        repos = response.map(repo => ({
-            name: repo.name,
-            fullName: repo.full_name,
-            url: repo.html_url,
-            description: repo.description,
-            language: repo.language,
-            stars: repo.stargazers_count,
-            forks: repo.forks_count,
-            updatedAt: repo.updated_at
-        }));
+        repos = response
+            .filter(repo => !blacklist.includes(repo.name))
+            .map(repo => {
+                const thumbnail = thumbnailMap.get(`${repo.name}.png`) ?? "";
+                return {
+                    name: repo.name,
+                    fullName: repo.full_name,
+                    url: repo.html_url,
+                    thumbnail: thumbnail,
+                    description: repo.description,
+                    language: repo.language,
+                    stars: repo.stargazers_count,
+                    forks: repo.forks_count,
+                    updatedAt: repo.updated_at
+                };
+            });
         cache.set(this.CACHE_KEY, repos);
         return repos;
     }

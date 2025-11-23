@@ -86,10 +86,8 @@ export default function Profile() {
     <section id="home" className={styles.profile}>
       <div className={styles.container}>
         <div className={styles.textContent}>
-          <p className={styles.greeting}>Hi 👋,</p>
-          <p className={styles.intro}>My name is</p>
-          <p className={styles.name}>{profile.name}</p>
           <p className={styles.tagline}>{profile.introduction.title}</p>
+          <p className={styles.name}>{`${profile.name} 입니다.`}</p>
         </div>
         <div className={styles.imageWrapper}>
           <img 

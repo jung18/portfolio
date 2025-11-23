@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { api } from "@/utils/apiUtil";
+import { api, STATIC_BASE_URL } from "@/utils/apiUtil";
 import ProjectCard from "./components/ProjectCard";
 import styles from "./Projects.module.css";
 
@@ -7,6 +7,7 @@ interface Repo {
   name: string;
   fullName: string;
   url: string;
+  thumbnail: string;
   description: string | null;
   language: string | null;
   stars: number;
@@ -69,9 +70,9 @@ export default function Projects() {
             <ProjectCard
               key={repo.fullName}
               title={repo.name}
-              description={repo.description || "설명이 없습니다."}
+              description={repo.description || ""}
               techStack={repo.language || "Unknown"}
-              image=""
+              image={`${STATIC_BASE_URL}${repo.thumbnail}`}
               liveLink={repo.url}
               codeLink={repo.url}
             />
