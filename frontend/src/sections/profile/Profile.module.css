@@ -59,6 +59,19 @@
   margin: 0;
 }
 
+.introductionDetail {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  color: #666666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding-top: 5px;
+}
+
+.detail {
+  margin-top: 20px;
+}
+
 .imageWrapper {
   position: relative;
   width: 250px;

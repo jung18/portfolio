@@ -11,7 +11,7 @@ export interface ProfileData {
   profileImage: string;
   introduction: {
     title: string;
-    content: string;
+    details: string[];
   };
   certificate: Array<{
     title: string;

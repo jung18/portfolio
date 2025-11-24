@@ -119,6 +119,7 @@ export default function Header() {
         <Logo />
         <nav className={styles.nav}>
           <a href="#home" className={styles.navLink}>About</a>
+          <a href="#career" className={styles.navLink}>Career</a>
           <a href="#tech-stack" className={styles.navLink}>Tech Stack</a>
           <a href="#projects" className={styles.navLink}>Projects</a>
           <a href="#contact" className={styles.navLink}>Contact</a>

@@ -29,8 +29,15 @@ export default function Profile() {
     <section id="home" className={styles.profile}>
       <div className={styles.container}>
         <div className={styles.textContent}>
-          <p className={styles.tagline}>{profile.introduction.title}</p>
-          <p className={styles.name}>{`${profile.name} 입니다.`}</p>
+            <p className={styles.tagline}>{profile.introduction.title}</p>
+            <p className={styles.name}>{`${profile.name} 입니다.`}</p>
+            {Array.isArray(profile.introduction.details) && profile.introduction.details.length > 0 && (
+              <div className={styles.detail}>
+                {profile.introduction.details.map((detail, idx) => (
+                  <p key={idx} className={styles.introductionDetail}>{detail}</p>
+                ))}
+              </div>
+            )}
         </div>
         <div className={styles.imageWrapper}>
           <img 

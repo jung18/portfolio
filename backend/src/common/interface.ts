@@ -17,7 +17,7 @@ export interface ContactInfo {
 
 export interface Introduction {
   title: string;
-  content: string;
+  details: string[];
 }
 
 export interface Certificate {
