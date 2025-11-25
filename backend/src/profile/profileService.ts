@@ -1,7 +1,7 @@
-import { GithubRepo } from "@/common/interface";
+import { GithubRepo } from "../common/interface";
 import axios from "axios";
-import { cache } from "@/common/cache";
-import { ProfileData } from "@/common/interface";
+import { cache } from "../common/cache";
+import { ProfileData } from "../common/interface";
 import fs from "fs";
 import path from "path";
 

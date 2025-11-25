@@ -20,7 +20,7 @@
     /* Paths (optional but recommended) */
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["*"]
     },
 
     /* Node.js settings */
