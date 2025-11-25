@@ -34,6 +34,6 @@ app.use((error: any, req: Request, res: Response, next: NextFunction) => {
     });
 });
 
-httpServer.listen(httpPort, () => {
+httpServer.listen(httpPort, "0.0.0.0", () => {
     console.log(`http server started on port ${httpPort}`);
 });
