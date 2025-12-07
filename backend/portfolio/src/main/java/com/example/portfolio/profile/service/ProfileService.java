@@ -40,7 +40,7 @@ public class ProfileService {
     private String baseUrl;
 
     private final RestTemplate restTemplate;
-    private final List<String> blackList = List.of("jung18", "Algorithm", "TIL");
+    private final List<String> blackList = List.of("jung18", "Algorithm", "TIL", "portfolio");
 
     @PostConstruct
     public void loadProfile() {
