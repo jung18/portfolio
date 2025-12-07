@@ -90,7 +90,7 @@ public class ProfileService {
         List<RepositoryDTO> dtos = repositories.stream()
                 .filter(repo -> !blackList.contains(repo.getName()))
                 .map(repo -> {
-                    String thumbnail = repoThumbnails.get(repo.getName());
+                    String thumbnail = "/thumbnails/" + repoThumbnails.get(repo.getName());
                     repo.setThumbnail(thumbnail);
                     return repo;
                 }).toList();

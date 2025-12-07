@@ -5,7 +5,7 @@
         "email": "enghddd@naver.com",
         "github": "https://github.com/jung18"
     },
-    "profileImage": "/static/profile/profile.jpg",
+    "profileImage": "/profile/profile.jpg",
     "introduction": {
         "title": "멋진 소개문구",
         "details": [
