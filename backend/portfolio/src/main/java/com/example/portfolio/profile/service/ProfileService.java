@@ -2,6 +2,7 @@ package com.example.portfolio.profile.service;
 
 import com.example.portfolio.profile.dto.ProfileDTO;
 import com.example.portfolio.profile.dto.RepositoryDTO;
+import com.example.portfolio.profile.dto.RepositoryDetailDTO;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -133,5 +134,9 @@ public class ProfileService {
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+    public RepositoryDetailDTO getRepoDetail(int repoId) {
+        return new RepositoryDetailDTO();
     }
 }

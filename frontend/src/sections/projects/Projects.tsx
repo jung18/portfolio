@@ -4,6 +4,7 @@ import ProjectCard from "./components/ProjectCard";
 import styles from "./Projects.module.css";
 
 interface Repo {
+  id: number;
   name: string;
   fullName: string;
   url: string;

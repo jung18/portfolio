@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 public class RepositoryDTO {
 
+    private int id;
     private String name;
     private String fullName;
     private String url;
