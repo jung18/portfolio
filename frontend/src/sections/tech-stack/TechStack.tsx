@@ -51,7 +51,7 @@ export default function TechStack() {
   return (
     <section id="tech-stack" className={styles.techStack}>
       <div className={styles.container}>
-        <h2 className={styles.title}>My Tech Stack</h2>
+        <h2 className={styles.title}>Tech Stack</h2>
         <p className={styles.subtitle}>Technologies I've been working with recently</p>
         <div className={styles.iconGrid}>
           {icons.map((iconPath, index) => (

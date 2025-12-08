@@ -11,6 +11,8 @@
 .title {
   font-family: 'Poppins', sans-serif;
   font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
   line-height: 1.3;
   color: #42446e;
   text-align: center;
@@ -19,9 +21,9 @@
 
 .subtitle {
   font-family: 'Poppins', sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 1.4;
-  color: #42446e;
+  color: #666666;
   text-align: center;
   margin: 0 0 80px;
 }

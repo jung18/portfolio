@@ -24,7 +24,7 @@ export interface ProfileData {
       start: string;
       end: string;
     };
-    grade: string;
+    organization: string;
     sections: Array<{
       title: string;
       details: string[];

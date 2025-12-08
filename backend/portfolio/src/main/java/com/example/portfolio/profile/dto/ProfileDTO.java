@@ -52,7 +52,7 @@ public class ProfileDTO {
     public static class Education {
         private String title;
         private Period period;
-        private String grade;
+        private String organization;
         private List<Section> sections;
     }
 

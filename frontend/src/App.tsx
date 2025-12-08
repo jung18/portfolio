@@ -4,6 +4,7 @@ import Profile from "./sections/profile/Profile";
 import TechStack from "./sections/tech-stack/TechStack";
 import Projects from "./sections/projects/Projects";
 import Footer from "./sections/footer/Footer";
+import Career from "./sections/career/Career";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Profile />
           <TechStack />
           <Projects />
+          <Career />
         </main>
         <Footer />
       </div>
