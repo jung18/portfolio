@@ -41,7 +41,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <nav className={styles.nav}>
-          <a href="#home" className={styles.navLink}>About</a>
+          <a href="#about" className={styles.navLink}>About</a>
           <a href="#tech-stack" className={styles.navLink}>Tech Stack</a>
           <a href="#projects" className={styles.navLink}>Projects</a>
           <a href="#career" className={styles.navLink}>Career</a>

@@ -26,7 +26,7 @@ export default function Profile() {
   }
 
   return (
-    <section id="home" className={styles.profile}>
+    <section id="about" className={styles.profile}>
       <div className={styles.container}>
         <div className={styles.textContent}>
             <p className={styles.tagline}>{profile.introduction.title}</p>

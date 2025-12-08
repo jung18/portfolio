@@ -8,9 +8,10 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 40px;
+  position: relative;
 }
 
 .logo {
@@ -20,7 +21,7 @@
 
 .contact {
   display: flex;
-  gap: 60px;
+  gap: 120px;
   align-items: center;
 }
 
@@ -46,6 +47,8 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  position: absolute;
+  right: 0;
 }
 
 .socialLink {
