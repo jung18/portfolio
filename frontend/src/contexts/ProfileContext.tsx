@@ -18,14 +18,18 @@ export interface ProfileData {
     date: string;
     issue: string;
   }>;
-  education: {
+  education: Array<{
     title: string;
     period: {
       start: string;
       end: string;
     };
     grade: string;
-  };
+    sections: Array<{
+      title: string;
+      details: string[];
+    }>;
+  }>;
   career: Array<{
     company: string;
     role: string;

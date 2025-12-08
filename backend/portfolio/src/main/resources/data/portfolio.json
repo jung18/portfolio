@@ -26,18 +26,10 @@
             "issue": "한국데이터산업진흥원"
         }
     ],
-    "education": {
-        "title": "건양대학교 의공학과 졸업",
-        "period": {
-            "start": "2024-01",
-            "end": "2024-12"
-        },
-        "grade": "4.02 / 4.5"
-    },
-    "career": [
+    "education": [
         {
-            "company": "삼성 청년 SW 아카데미",
-            "role": "교육생",
+            "title": "삼성 청년 SW 아카데미 수료",
+            "grade": "",
             "period": {
                 "start": "2024-01",
                 "end": "2024-12"
@@ -66,6 +58,17 @@
                 }
             ]
         },
+        {
+            "title": "건양대학교 의공학과 졸업",
+            "grade": "4.02 / 4.5",
+            "period": {
+                "start": "2018-02",
+                "end": "2024-02"
+            },
+            "sections": []
+        }
+    ],
+    "career": [
         {
             "company": "알티솔루션",
             "role": "백엔드 개발자",

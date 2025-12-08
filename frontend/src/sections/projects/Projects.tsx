@@ -6,14 +6,14 @@ import styles from "./Projects.module.css";
 interface Repo {
   id: number;
   name: string;
-  fullName: string;
-  url: string;
+  full_name: string;
+  html_url: string;
   thumbnail: string;
   description: string | null;
   language: string | null;
-  stars: number;
-  forks: number;
-  updatedAt: string;
+  stargazers_count: number;
+  forks_count: number;
+  updated_at: string;
 }
 
 interface ReposResponse {
@@ -69,12 +69,12 @@ export default function Projects() {
         <div className={styles.grid}>
           {repos.map((repo) => (
             <ProjectCard
-              key={repo.fullName}
+              key={repo.full_name}
               title={repo.name}
               description={repo.description || ""}
               techStack={repo.language || "Unknown"}
               image={`${STATIC_BASE_URL}${repo.thumbnail}`}
-              codeLink={repo.url}
+              codeLink={repo.html_url}
             />
           ))}
         </div>

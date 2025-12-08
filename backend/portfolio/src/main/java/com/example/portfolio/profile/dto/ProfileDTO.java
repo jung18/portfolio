@@ -13,7 +13,7 @@ public class ProfileDTO {
     private String profileImage;
     private Introduction introduction;
     private List<Certificate> certificate;
-    private Education education;
+    private List<Education> education;
     private List<Career> career;
 
     @Data
@@ -53,6 +53,7 @@ public class ProfileDTO {
         private String title;
         private Period period;
         private String grade;
+        private List<Section> sections;
     }
 
     @Data
