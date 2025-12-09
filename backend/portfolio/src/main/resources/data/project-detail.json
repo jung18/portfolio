@@ -1,0 +1,182 @@
+[
+    {
+        "id": 800334421,
+        "name": "Filminate",
+        "mainPage": "/projects/filminate/main.png",
+        "description": "포스터 유사도 기반 영화추천 서비스",
+        "period": {
+            "start": "2024-05",
+            "end": "2024-05"
+        },
+        "team": {
+            "frontend": 1,
+            "backend": 1
+        },
+        "role": [
+            "데이터베이스 구축",
+            "DRF 기반 백엔드 API 설계",
+            "유사도 기반 추천 알고리즘 구현"
+        ],
+        "techStack": [
+            "Django",
+            "Vue.js",
+            "MySQL"
+        ],
+        "diagram": "/projects/filminate/diagram.png",
+        "details": [
+            {
+                "thumbnail": "/projects/filminate/detail/tmdb.png",
+                "title": "TMDB 데이터셋 정제",
+                "content": "TMDB API 기반 데이터베이스 구축 자동화를 통한 개발속도 상승"
+            },
+            {
+                "thumbnail": "/projects/filminate/detail/recommend.png",
+                "title": "유사도 기반 추천 알고리즘 구현",
+                "content": "VGG16 모델을 특징 추출기로 활용해 포스터 유사도 매핑을 통한 추천 알고리즘을 구현, 이를 통해 사용자에게 더욱 다양한 추천 컨텐츠를 제공"
+            }
+        ]
+    },
+    {
+        "id": 848023388,
+        "name": "아장아장",
+        "mainPage": "/projects/ajang2/main.png",
+        "description": "지역기반 육아용품 중고거래 서비스",
+        "period": {
+            "start": "2024-07",
+            "end": "2024-08"
+        },
+        "team": {
+            "frontend": 2,
+            "backend": 3
+        },
+        "role": [
+            "전국 법정동 데이터 구축",
+            "판매글 CRUD 구현",
+            "검색 및 카테고리 필터링 구현",
+            "위치기반 거래장소 추천기능 구현"
+        ],
+        "techStack": [
+            "Spring",
+            "FastAPI",
+            "React",
+            "PWA",
+            "MySQL",
+            "Redis",
+            "MongoDB",
+            "Elasticsearch",
+            "Docker",
+            "Nginx",
+            "Jenkins",
+            "AWS"
+        ],
+        "diagram": "/projects/ajang2/diagram.png",
+        "details": [
+            {
+                "thumbnail": "/projects/ajang2/detail/search.png",
+                "title": "Elasticsearch 기반 검색 및 카테고리 필터링 구현",
+                "content": "판매글 검색 기능에 Elasticsearch를 사용하여 사용자 위치 기반의 유연한 검색을 구현, 네이버 검색어 제안 API를 통해 검색 편의성 증대"
+            },
+            {
+                "thumbnail": "/projects/ajang2/detail/recommand.png",
+                "title": "사용자 위치기반 거래장소 추천기능 구현",
+                "content": "카카오 지도 API 및 카카오 로컬 API를 사용하여 사용자 근처 공공장소 제공 및 길찾기 기능을 구현"
+            }
+        ]
+    },
+    {
+        "id": 871248196,
+        "name": "Triplet",
+        "mainPage": "/projects/triplet/main.png",
+        "description": "여행 경비 관리 및 공유 서비스",
+        "period": {
+            "start": "2024-08",
+            "end": "2024-10"
+        },
+        "team": {
+            "frontend": 3,
+            "backend": 3
+        },
+        "role": [
+            "Spring Security 기반 인증/인가 (JWT, OAuth2)",
+            "송금/환전/거래내역 CRUD 구현",
+            "환전/거래내역 페이지 구현",
+            "문자인증 기능 구현"
+        ],
+        "techStack": [
+            "Spring",
+            "React",
+            "PWA",
+            "MySQL",
+            "Redis",
+            "Elasticsearch",
+            "Docker",
+            "Nginx",
+            "Jenkins",
+            "AWS"
+        ],
+        "diagram": "/projects/triplet/diagram.png",
+        "details": [
+            {
+                "thumbnail": "/projects/triplet/detail/auth.png",
+                "title": "OAuth2 기반 소셜로그인 구현",
+                "content": "일반 로그인과 더불어 OAuth2 기반의 카카오 소셜로그인을 구현하여 사용자의 로그인 편의성 증대"
+            },
+            {
+                "thumbnail": "/projects/triplet/detail/pay.png",
+                "title": "거래내역 조회기능 구현",
+                "content": "jpql fetch join 기반 조회 쿼리를 사용하여 N+1문제 방지 및 쿼리 최적화"
+            },
+            {
+                "thumbnail": "/projects/triplet/detail/sms.png",
+                "title": "CoolSMS 기반 문자인증 구현",
+                "content": "CoolSMS API를 사용하여 문자발송 기능 구현, Redis 기반의 인증번호 캐싱을 통해 데이터 관리 효율성 증대"
+            }
+        ]
+    },
+    {
+        "id": 894208040,
+        "name": "대전왔슈",
+        "mainPage": "/projects/wassu/main.png",
+        "description": "대전 관광지 추천 여행 서비스",
+        "period": {
+            "start": "2024-10",
+            "end": "2024-11"
+        },
+        "team": {
+            "frontend": 3,
+            "backend": 3
+        },
+        "role": [
+            "인프라 및 CI/CD 구축",
+            "관광지 데이터 수집",
+            "SSE 기반 부루마블 기능 구현",
+            "관광지 리뷰 CRUD 구현"
+        ],
+        "techStack": [
+            "Spring",
+            "FastAPI",
+            "React Native",
+            "Next.js",
+            "PostgreSQL",
+            "Redis",
+            "Elasticsearch",
+            "Docker",
+            "Nginx",
+            "Jenkins",
+            "AWS"
+        ],
+        "diagram": "/projects/wassu/diagram.png",
+        "details": [
+            {
+                "thumbnail": "/projects/wassu/detail/infra.png",
+                "title": "인프라 및 Jenkins 기반 CI/CD 파이프라인 구축",
+                "content": "Docker Compose기반 서비스 통합 관리 및 Jenkins기반의 CI/CD 파이프라인을 구축하여 개발 및 배포 과정의 편의성 증대"
+            },
+            {
+                "thumbnail": "/projects/wassu/detail/marvel.png",
+                "title": "SSE 기반 부루마블 구현",
+                "content": "SseEmitter 및 비동기 스케줄링을 사용해 Server Sent Event 기능 구현, 이를 통해 적은 비용 및 단순한 구현으로 사용자에게 실시간 게임 기능 제공"
+            }
+        ]
+    }
+]

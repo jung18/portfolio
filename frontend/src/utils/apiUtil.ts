@@ -50,6 +50,12 @@ export const api = {
     const response = await apiClient.get("/repos");
     return response.data;
   },
+
+  // 프로젝트 상세 정보 가져오기
+  getProjectDetail: async (projectId: number) => {
+    const response = await apiClient.get(`/repos/${projectId}`);
+    return response.data;
+  }
 };
 
 export default apiClient;
