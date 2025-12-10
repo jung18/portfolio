@@ -1,13 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { api, STATIC_BASE_URL } from "@/utils/apiUtil";
 import FeatureTimeline from "./components/FeatureTimeline";
 import styles from "./ProjectDetail.module.css";
-
-interface ProjectDetailProps {
-  projectId: number;
-  onBack: () => void;
-}
 
 interface ProjectDetailResponse {
   id: number;
@@ -22,7 +18,7 @@ interface ProjectDetailResponse {
     frontend: number;
     backend: number;
   };
-  role: string;
+  role: string[];
   techStack: string[];
   diagram: string;
   details: {
@@ -32,16 +28,25 @@ interface ProjectDetailResponse {
   }[];
 }
 
-export default function ProjectDetail({ projectId, onBack }: ProjectDetailProps) {
+export default function ProjectDetail() {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [project, setProject] = useState<ProjectDetailResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchProjectDetail = async () => {
+      if (!id) {
+        setError("프로젝트 ID가 없습니다.");
+        setLoading(false);
+        return;
+      }
+
       try {
         setLoading(true);
         setError(null);
+        const projectId = parseInt(id, 10);
         const data = await api.getProjectDetail(projectId);
         setProject(data);
       } catch (err) {
@@ -52,13 +57,17 @@ export default function ProjectDetail({ projectId, onBack }: ProjectDetailProps)
     };
 
     fetchProjectDetail();
-  }, [projectId]);
+  }, [id]);
+
+  const handleBack = () => {
+    navigate("/");
+  };
 
   if (loading) {
     return (
       <section className={styles.projectDetail}>
         <div className={styles.container}>
-          <button onClick={onBack} className={styles.backButton}>
+          <button onClick={handleBack} className={styles.backButton}>
             <ArrowLeft size={20} />
             Back to Projects
           </button>
@@ -72,7 +81,7 @@ export default function ProjectDetail({ projectId, onBack }: ProjectDetailProps)
     return (
       <section className={styles.projectDetail}>
         <div className={styles.container}>
-          <button onClick={onBack} className={styles.backButton}>
+          <button onClick={handleBack} className={styles.backButton}>
             <ArrowLeft size={20} />
             Back to Projects
           </button>
@@ -104,7 +113,7 @@ export default function ProjectDetail({ projectId, onBack }: ProjectDetailProps)
     <section className={styles.projectDetail}>
       <div className={styles.container}>
         {/* 뒤로가기 버튼 */}
-        <button onClick={onBack} className={styles.backButton}>
+        <button onClick={handleBack} className={styles.backButton}>
           <ArrowLeft size={20} />
           Back to Projects
         </button>
@@ -134,7 +143,11 @@ export default function ProjectDetail({ projectId, onBack }: ProjectDetailProps)
                 </div>
                 <div className={styles.detailItem}>
                   <span className={styles.detailLabel}>역할</span>
-                  <span className={styles.detailValue}>{project.role}</span>
+                  <div className={styles.detailValue}>
+                    {project.role.map((roleItem, index) => (
+                      <div key={index}>{roleItem}</div>
+                    ))}
+                  </div>
                 </div>
                 <div className={styles.detailItem}>
                   <span className={styles.detailLabel}>기술 스택</span>

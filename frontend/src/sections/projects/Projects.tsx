@@ -70,6 +70,7 @@ export default function Projects() {
           {repos.map((repo) => (
             <ProjectCard
               key={repo.full_name}
+              id={repo.id}
               title={repo.name}
               description={repo.description || ""}
               techStack={repo.language || "Unknown"}

@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import svgPaths from "../../../imports/svg-n1ck8w4cmn";
 import styles from "./ProjectCard.module.css";
 
 interface ProjectCardProps {
+  id: number;
   title: string;
   description: string;
   techStack: string;
@@ -24,9 +26,19 @@ function GithubIcon() {
   );
 }
 
-export default function ProjectCard({ title, description, techStack, image, codeLink }: ProjectCardProps) {
+export default function ProjectCard({ id, title, description, techStack, image, codeLink }: ProjectCardProps) {
+  const navigate = useNavigate();
+
+  const handleCardClick = (e: React.MouseEvent) => {
+    // GitHub 링크 클릭 시에는 상세 페이지로 이동하지 않음
+    if ((e.target as HTMLElement).closest(`.${styles.link}`)) {
+      return;
+    }
+    navigate(`/project/${id}`);
+  };
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <div className={styles.imageWrapper}>
         <img 
           src={image} 
@@ -42,7 +54,13 @@ export default function ProjectCard({ title, description, techStack, image, code
           {techStack}
         </p>
         <div className={styles.bottomSection}>
-          <a href={codeLink} className={styles.link} target="_blank" rel="noopener noreferrer">
+          <a 
+            href={codeLink} 
+            className={styles.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+          >
             <GithubIcon />
             View Code
           </a>
