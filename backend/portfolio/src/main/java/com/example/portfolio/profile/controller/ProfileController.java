@@ -2,7 +2,7 @@ package com.example.portfolio.profile.controller;
 
 import com.example.portfolio.profile.dto.ProfileDTO;
 import com.example.portfolio.profile.dto.RepositoryDTO;
-import com.example.portfolio.profile.dto.RepositoryDetailDTO;
+import com.example.portfolio.profile.dto.ProjectDetailDTO;
 import com.example.portfolio.profile.service.ProfileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +41,7 @@ public class ProfileController {
 
     @GetMapping("/repos/{repoId}")
     public ResponseEntity<?> getRepoDetail(@PathVariable int repoId) {
-        RepositoryDetailDTO result = profileService.getRepoDetail(repoId);
+        ProjectDetailDTO result = profileService.getProjectDetails(repoId);
         return ResponseEntity.ok(result);
     }
 }

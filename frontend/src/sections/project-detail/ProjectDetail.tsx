@@ -93,7 +93,7 @@ export default function ProjectDetail() {
 
   // period 포맷팅 함수
   const formatPeriod = (start: string, end: string) => {
-    return `${start} - ${end}`;
+    return `${start} ~ ${end}`;
   };
 
   // team 포맷팅 함수
@@ -145,7 +145,7 @@ export default function ProjectDetail() {
                   <span className={styles.detailLabel}>역할</span>
                   <div className={styles.detailValue}>
                     {project.role.map((roleItem, index) => (
-                      <div key={index}>{roleItem}</div>
+                      <div key={index}>▸ {roleItem}</div>
                     ))}
                   </div>
                 </div>

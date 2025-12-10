@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 public class RepositoryDTO {
 
-    private int id;
+    private long id;
     private String name;
     @JsonProperty("full_name")
     private String fullName;

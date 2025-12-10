@@ -2,7 +2,7 @@ package com.example.portfolio.profile.service;
 
 import com.example.portfolio.profile.dto.ProfileDTO;
 import com.example.portfolio.profile.dto.RepositoryDTO;
-import com.example.portfolio.profile.dto.RepositoryDetailDTO;
+import com.example.portfolio.profile.dto.ProjectDetailDTO;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,6 +29,7 @@ import java.util.Map;
 public class ProfileService {
 
     private ProfileDTO profile;
+    private List<ProjectDetailDTO> projectDetails;
     private final Map<String, String> repoThumbnails = new HashMap<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final RedisService redisService;
@@ -44,11 +45,16 @@ public class ProfileService {
     private final List<String> blackList = List.of("jung18", "Algorithm", "TIL", "portfolio");
 
     @PostConstruct
-    public void loadProfile() {
+    public void loadData() {
         try {
             ClassPathResource profileJson = new ClassPathResource("data/portfolio.json");
+            ClassPathResource projectDetailJson = new ClassPathResource("data/project-detail.json");
             this.profile = objectMapper.readValue(
                     profileJson.getInputStream(),
+                    new TypeReference<>() {}
+            );
+            this.projectDetails = objectMapper.readValue(
+                    projectDetailJson.getInputStream(),
                     new TypeReference<>() {}
             );
         } catch (Exception e) {
@@ -136,7 +142,14 @@ public class ProfileService {
         }
     }
 
-    public RepositoryDetailDTO getRepoDetail(int repoId) {
-        return new RepositoryDetailDTO();
+    public ProjectDetailDTO getProjectDetails(int repoId) {
+        if (this.projectDetails != null) {
+            for (ProjectDetailDTO detail : projectDetails) {
+                if (detail.getId() == repoId) {
+                    return detail;
+                }
+            }
+        }
+        return new ProjectDetailDTO();
     }
 }
